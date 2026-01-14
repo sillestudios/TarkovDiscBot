@@ -23,6 +23,8 @@ class WeaponCaliber(Enum):
     AMMO_12GAUGE = "12 Gauge"
     AMMO_40MM = "40mm Grenade"
     AMMO_4_6x30MM = "4.6x30mm"
+    AMMO_366_TKM = "366 TKM"
+    AMMO_7_62x54R = "7.62x54R"
 
 class FireMode(Enum):
     SingleShot = "Single Shot"
@@ -74,18 +76,49 @@ class Weapon(WeaponDataMixin, Enum):
     "A cheap but versatile assault rifle.",
     100, 3320, 39, 1.99, 85, 906, [FireMode.SemiAuto, FireMode.FullAuto], WeaponCaliber.AMMO_5_45x39MM, 650, 650)
 
+    AKM = (ItemRarity.UNCOMMON, "AKM", WeaponType.ASSAULT_RIFLE,
+    "Classic 7.62x39 thumper—hits harder, kicks harder.",
+    100, 3495, 36, 2.3, 109, 730, [FireMode.SemiAuto, FireMode.FullAuto], WeaponCaliber.AMMO_7_62x39MM, 600, 400)
+
+    RD_704 = (ItemRarity.RARE, "RD-704", WeaponType.ASSAULT_RIFLE,
+    "High-end 7.62x39 rifle tuned for control and output.",
+    100, 3835, 62, 2.0, 104, 789, [FireMode.SemiAuto, FireMode.FullAuto], WeaponCaliber.AMMO_7_62x39MM, 600, 650)
+
+    M4A1 = (ItemRarity.LEGENDARY, "Colt M4A1", WeaponType.ASSAULT_RIFLE,
+    "Modular 5.56 rifle—endless build paths.",
+    100, 2849, 51.5, 1.8, 84, 862, [FireMode.SemiAuto, FireMode.FullAuto], WeaponCaliber.AMMO_5_56x45MM, 800, 500)
+
+    HK_416A5 = (ItemRarity.MYTHIC, "HK 416A5", WeaponType.ASSAULT_RIFLE,
+    "Premium 5.56 platform—fast, clean, expensive.",
+    100, 3819, 55, 1.9, 85, 804, [FireMode.SemiAuto, FireMode.FullAuto], WeaponCaliber.AMMO_5_56x45MM, 850, 500)
+
+    #Bolt-action rifles
+    VPO_215 = (ItemRarity.COMMON, "VPO-215 Gornostay", WeaponType.BOLT_ACTION,
+    "Budget bolt-action in .366—starter sniper energy.",
+    100, 3300, 50, 1.5, 130, 865, [FireMode.SingleShot], WeaponCaliber.AMMO_366_TKM, 30, 1000)
+
+    MOSIN_SNIPER = (ItemRarity.UNCOMMON, "Mosin (Sniper)", WeaponType.BOLT_ACTION,
+    "Old-school 7.62x54R bolt gun—cheap, deadly, everywhere.",
+    100, 4880, 13, 1.3, 202, 988, [FireMode.SingleShot], WeaponCaliber.AMMO_7_62x54R, 30, 1000)
+    
+    M700 = (ItemRarity.RARE, "Remington Model 700", WeaponType.BOLT_ACTION,
+    "Reliable .308 bolt-action classic.",
+    100, 4060, 37, 0.8, 149, 943, [FireMode.SingleShot], WeaponCaliber.AMMO_7_62x51MM, 30, 1000)
+
+    DVL_10 = (ItemRarity.LEGENDARY, "DVL-10", WeaponType.BOLT_ACTION,
+    "Suppressed precision bolt-action built for stealth shots.",
+    100, 5068, 52, 0.45, 69, 977, [FireMode.SingleShot], WeaponCaliber.AMMO_7_62x51MM, 30, 1000)
+
+    T_5000M = (ItemRarity.MYTHIC, "ORSIS T-5000M", WeaponType.BOLT_ACTION,
+    "Long-range bolt-action focused on accuracy and stability.",
+    100, 5900, 72, 0.7, 94, 961, [FireMode.SingleShot], WeaponCaliber.AMMO_7_62x51MM, 30, 1000)
+
+
 
 
 #MOVE ALL THIS INTO THE DATA CLASS
 class WeaponName(Enum):
 
-    #ASSAULT RIFLES
-
-    AK_74 = "AK-74"
-    AKM = "AKM"
-    AS_VAL = "AS VAL"
-    M4A1 = "M4A1"
-    SA_58 = "SA-58"
 
     #BOLT-ACTION RIFLES
 
