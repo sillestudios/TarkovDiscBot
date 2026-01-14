@@ -1,5 +1,6 @@
 from enum import Enum
 from dataclasses import dataclass
+from items import ItemRarity
 
 class WeaponType(Enum):
     ASSAULT_CARBINE = "Assault Carbine"
@@ -22,11 +23,17 @@ class WeaponCaliber(Enum):
     AMMO_40MM = "40mm Grenade"
     AMMO_4_6x30MM = "4.6x30mm"
 
+class FireMode(Enum):
+    SingleShot = "Single Shot"
+    SemiAuto = "Semi Auto"
+    Burst = "Burst"
+    FullAuto = "Full Auto"
+
 @dataclass
 class WeaponDataMixin:
-    rarity: str
-    name: str
-    type: str
+    rarity: ItemRarity
+    weapon_name: str
+    weapon_type: WeaponType
     description: str
     durability: int
     weight: int
@@ -34,16 +41,16 @@ class WeaponDataMixin:
     accuracy: int
     recoil: int
     muzzle_velocity: int
-    types_of_fire: str
-    caliber: WeaponCaliber.AMMO_5_56x45MM
+    fire_mode: list[FireMode]
+    caliber: WeaponCaliber
     fire_rate: int
     effective_distance: int
 
 class Weapon(WeaponDataMixin, Enum):
     #Assault Carbines
-    ADAR_2_15 = "Common", "ADAR 2-15","Assault Carbine", 
+    ADAR_2_15 = (ItemRarity.COMMON,"ADAR 2-15",WeaponType.ASSAULT_CARBINE, 
     "A reliable and versatile assault carbine.",
-    100, 3267, 60.5, 2.2, 84, 905, "Semi-Auto, Full-Auto", WeaponCaliber.AMMO_5_56x45MM, 800, 500
+    100, 3267, 60.5, 2.2, 84, 905, [FireMode.SemiAuto], WeaponCaliber.AMMO_5_56x45MM, 800, 500)
 
 
 
@@ -52,7 +59,6 @@ class WeaponName(Enum):
 
     #ASSAULT CARBINES
 
-    ADAR_2_15 = "ADAR 2-15"
     OP_SKS = "OP-SKS"
     RFB = "RFB"
     SR_3M = "SR-3M"
