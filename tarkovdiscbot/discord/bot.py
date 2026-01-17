@@ -9,7 +9,7 @@ bot = hikari.GatewayBot(token=APP_TOKEN)
 
 @bot.listen()
 async def ping(event: hikari.GuildMessageCreateEvent) -> None:
-    """If a non-bot user mentions your bot, respond with 'Pong!'."""
+    """If a non-bot user mentions your bot, respond with 'I love cookie!'."""
 
     # Do not respond to bots nor webhooks pinging us, only user accounts
     if not event.is_human:
